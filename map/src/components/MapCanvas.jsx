@@ -57,9 +57,9 @@ const MATCH_M           = 20;
 
 
 const COL_BACKGROUND = 0x090909;
-const COL_MAIN  = 0xED3125;
-const COL_SUSP  = 0xED7762;
-const COL_CONF  = 0xEDEAE5;
+const COL_MAIN  = 0x444444;
+const COL_SUSP  = 0xBBBBBB;
+const COL_CONF  = 0xED3125;
 
 
 const SERVER = "https://fwiserver-production.up.railway.app";
@@ -73,8 +73,8 @@ const POI_CONFIRMED_HOVER_MAT    = new THREE.MeshStandardMaterial({ color: COL_C
 const POI_SUSPECTED_SELECTED_MAT = new THREE.MeshStandardMaterial({ color: COL_SUSP, roughness: 0.4, emissive: new THREE.Color(COL_SUSP) });
 const POI_CONFIRMED_SELECTED_MAT = new THREE.MeshStandardMaterial({ color: COL_CONF, roughness: 0.4, emissive: new THREE.Color(COL_CONF) });
 const BUILDING_MAT               = new THREE.MeshStandardMaterial({ color: COL_MAIN, roughness: 1 });
-const EMPTY_GRID_MAT             = new THREE.MeshBasicMaterial({ color: 0xbb3333, wireframe: true });
-const PRE_LOAD_MAT               = new THREE.MeshBasicMaterial({ color: 0x222222, wireframe: true });
+const EMPTY_GRID_MAT             = new THREE.MeshBasicMaterial({ color: 0x666666, wireframe: true });
+const PRE_LOAD_MAT               = new THREE.MeshBasicMaterial({ color: 0x111111, wireframe: true });
 
 const POI_HEIGHT           = 2;
 const POI_INFLUENCE_RADIUS = 12;
