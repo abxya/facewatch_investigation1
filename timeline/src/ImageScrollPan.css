@@ -1,0 +1,24 @@
+/* Full-screen container — wheel events are captured here, not on the page */
+.scroll-pan-wrapper {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #050505;
+  overscroll-behavior: none;
+  touch-action: none;
+  position: relative; /* anchor for the absolutely-positioned image */
+}
+
+.scroll-pan-image {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  user-select: none;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.scroll-pan-wrapper {
+  touch-action: none;
+}
