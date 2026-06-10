@@ -1,30 +1,5 @@
-/* 
 
-   sketch.js — all JavaScript for "You Have Been Observed"
-
-   HOW THIS FILE IS ORGANISED
-   ─────────────────────────────────────────────────────────────────────
-   SECTION 1 — YOUR CONTENT   ← edit freely, this is your data
-   SECTION 2 — PAGE RENDERER  ← builds the DOM from your data
-   SECTION 3 — INTERACTIONS   ← video, timeline, Three.js map logic
-
-   Only edit Section 1 unless you need to change layout or behaviour.
-
- */
-
-
-
-/* 
-   SECTION 1 — CONTENT
-   ────────────────────────────────────────────────────────────────────
-   Everything here feeds into the pages automatically.
-   Each block is labelled with what page it controls.
-*/
-
-
-/* ------------------------------------------------------------------
-   1a. INTRO PAGE
-   ------------------------------------------------------------------ */
+/* 1a. INTRO PAGE */
 const INTRO = {
 
   // Large text shown faintly behind the popup
@@ -36,7 +11,7 @@ const INTRO = {
   // Main heading inside the popup
   popupHeading: 'Before you continue,\nwe need your agreement.',
 
-  // Body paragraphs — each string becomes a <p>
+
  
   popupBody: [
     'This experience uses <strong>tracking technologies</strong> to personalise content, measure engagement, and share data with our network of <strong>312 verified partners</strong> within a 48 mile radius (8 miles for urban areas).',
@@ -50,24 +25,12 @@ const INTRO = {
   popupAcceptLabel:  'Accept & Continue',
   popupDeclineLabel: 'Opt Out',           // always greyed out / disabled
 
-  // Data strings scrolled faintly in the background
-  // Add, remove, or change any of these
-  bgDataStrings: [
-    'DEVICE_ID:A3F2-9C11-8B4D', 'LAT:51.5074 LNG:-0.1278',
-    'FINGERPRINT:HASH_7a2f9c',  'CONSENT:PENDING',
-    'PROFILE_SCORE:847',        'INFERRED:ANXIOUS',
-    'PURCHASES:TRACKED',        'POLITICAL:MODERATE_LEFT',
-    'HEALTH_FLAGS:3',           'LOCATION_HISTORY:ENABLED',
-    'AD_SEGMENTS:214',          'RISK_SCORE:LOW',
-    'BROKER_ID:DX-0041',        'DATA_AGE:REALTIME',
-    'JURISDICTION:UNKNOWN',     'RETENTION:INDEFINITE',
-  ],
+ 
+ 
 };
 
 
-/* 
-   1b. VIDEO PAGE
-  */
+/* 1b. VIDEO PAGE */
 const VIDEO = {
   src:           'video.mp4',  
   fallbackDelay: 4000,
@@ -75,11 +38,7 @@ const VIDEO = {
 };
 
 
-/* ------------------------------------------------------------------
-   1c. TIMELINE PAGE
-   Each event appears as a node on the isometric 3D timeline.
-   Hover or click a node to load its full text below.
-   ------------------------------------------------------------------ */
+/* 1c. TIMELINE PAGE */
 const TIMELINE = {
   eyebrow: 'Chapter 02 — Timeline',
   heading: 'Live Facial Recognition VS CCTV',
@@ -88,18 +47,7 @@ const TIMELINE = {
 };
 
 
-/* ------------------------------------------------------------------
-   1d. MAP PAGE
-   Each node is a building in the Three.js isometric city.
-
-   x, z   — position on the grid. (0, 0) is the centre.
-             x goes left/right, z goes forward/back.
-   type   — must match a key in the `colors` object below
-   h      — building height. 1.0 = short, 4.0 = tall
-
-   Lines connecting buildings to the nearest 'platform' node
-   are drawn automatically.
-   ------------------------------------------------------------------ */
+/* 1d. MAP PAGE */
 const MAP = {
   eyebrow: 'Chapter 03 — Network',
   heading: 'The Facewatch Network',
@@ -188,14 +136,6 @@ As facial recognition spreads quietly through Britain's high streets, a question
 };
 
 
-
-/* ====================================================================
-   SECTION 2 — PAGE RENDERER
-   ────────────────────────────────────────────────────────────────────
-   Reads from Section 1 and builds the DOM.
-   You don't need to edit anything below this line unless you want
-   to change layout structure or add new page types.
-==================================================================== */
 
 
 // ── Utility: create an element with an optional CSS class and innerHTML
@@ -374,7 +314,7 @@ function buildTimelinePage() {
 }
 
 
-// ── BUILD PAGE 4 — MAP ───────────────────────────────────────────────
+// ── BUILD PAGE 4 — MAP
 function buildMapPage() {
   const page = make('div', 'page');
   page.id = 'page-map';
@@ -394,7 +334,7 @@ function buildMapPage() {
   iframe.style.border = '0';
   page.appendChild(iframe);
 
-  // ── Map popup overlay — built here, shown/hidden by showMapPopup()
+  // ── Map popup overlay 
   const cfg = MAP.mapPopup;
   const overlay = make('div', 'popup-overlay');
   overlay.id = 'map-popup-overlay';
@@ -437,7 +377,7 @@ function buildMapPage() {
 }
 
 
-// ── BUILD PAGE 5 — ARTICLE ───────────────────────────────────────────
+// ── BUILD PAGE 5 — ARTICLE
 function buildArticlePage() {
   const page = make('div', 'page');
   page.id = 'page-article';
@@ -487,13 +427,7 @@ function buildArticlePage() {
 
 
 
-/* ====================================================================
-   SECTION 3 — INTERACTIONS
-   ────────────────────────────────────────────────────────────────────
-   Video playback, TV-off transition, timeline node rendering,
-   and Three.js map initialisation.
-   You don't need to edit anything in this section.
-==================================================================== */
+/* SECTION 3 — INTERACTIONS */
 
 
 // Video state — module-level so timers and listeners can be cancelled
@@ -560,7 +494,7 @@ function triggerTvOff() {
 }
 
 
-// ── Map popup: show on every visit, dismiss to reveal the map ────────
+// ── Map popup: show on every visit, dismiss to reveal the map 
 let mapPopupDismissed = false;
 
 function showMapPopup() {
